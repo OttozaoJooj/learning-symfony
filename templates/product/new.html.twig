@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Create Product{% endblock %}
+
+{% block body %}
+
+<h1>Form</h1>
+
+<div class="mb-3">
+    {{form_label(form.name, null, {label_attr: {'class': 'form-label'}})}}
+    {{form_widget(form.name, {attr: {class: 'form-control', id: 'name'}})}}
+    <small id="helpId" class="text-muted">{{form_help(form.name)}}</small>
+</div>
+
+
+{% endblock %}

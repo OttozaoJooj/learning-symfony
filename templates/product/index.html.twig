@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Produtos{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+
+<h1>PRODUTOS</h1>
+<a href="{{path('product_new')}}">New Product</a>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="table-responsive">
+        <table     class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Tamanho</th>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/otto.mozale/Desktop/Programas/test_project/src/Controller/ProductController.php</code></li>
-        <li>Your template at <code>C:/Users/otto.mozale/Desktop/Programas/test_project/templates/product/index.html.twig</code></li>
-    </ul>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td scope="row">{{product.id}}</td>
+                    <td scope="row"><a href="{{ path('product_show', {'id': product.id}) }}">{{product.name}}</a></td>
+                    <td scope="row">{{product.description}}</td>
+                    <td scope="row">{{product.size}}</td>
+
+                </tr>
+
+            {% endfor %}
+                
+            </tbody>
+        </table>  
+    </div>
+    
 </div>
 {% endblock %}
