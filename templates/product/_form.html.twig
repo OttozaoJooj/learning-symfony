@@ -1,0 +1,30 @@
+<h1 class="text-center">Preencha o Formulário:</h1>
+
+
+<form method="POST" novalidate>
+    <div class="mb-3 mx-auto" style="max-width: 500px">
+        
+        <label for="name" class="form-label">{{field_label(form.name)}}</label>
+        <input
+            type="text"
+            class="form-control fw-bold mb-5"
+            name="{{field_name(form.name)}}"
+            id="name"
+            aria-describedby="helpId"
+            placeholder="Digite seu nome..."
+            required="required"
+        />  
+        <small id="helpId" class="form-text text-muted">{{form_errors(form.name)}}</small>
+
+        {{form_label(form.description, null, {label_attr: {'class': 'form-label'}})}}
+        {{form_widget(form.description, {attr: {class: 'form-control mb-5'}})}}
+        <small id="helpId" class="text-muted">{{form_errors(form.description)}}</small>
+
+        {{form_label(form.size, null, {label_attr: {'class': 'form-label'}})}}
+        {{form_widget(form.size, {attr: {class: 'form-control mb-5'}})}}
+        <small id="helpId" class="text-muted">{{form_errors(form.size)}}</small>
+
+        {{form_row(form.save, {'label': 'Enviar', 'attr': {'class': 'btn btn-primary'}})}}
+    </div>
+
+</form>
